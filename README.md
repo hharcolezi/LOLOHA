@@ -15,7 +15,7 @@ If our codes and work are useful to you, we would appreciate a reference to:
 ## Codes & Datasets
 All experiments in the paper are repeated over 20 iterations. Here we provide two Jupyter notebooks that use a reduced fraction of the respective dataset to decrease execution time through 5 iterations.
 
-- The [codes](https://github.com/hharcolezi/LOLOHA/tree/main/codes) folder has all developed longitudinal LDP protocols.
+- The [LDP](https://github.com/hharcolezi/LOLOHA/tree/main/LDP) folder has all developed longitudinal LDP protocols.
 - The [datasets](https://github.com/hharcolezi/LOLOHA/tree/main/datasets) folder has all used datastes.
 - The [1_LOLOHA_Analysis.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/1_LOLOHA_Analysis.ipynb) Jupyter notebook has all analytical analysis of the protocols (estimators, variance, privacy levels), the optimization of LOLOHA g parameter, and the analytical variance evaluation.
 - The [2_LOLOHA_Adult.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/2_LOLOHA_Adult.ipynb) Jupyter notebook has the experimental evaluation with the Adult dataset.
