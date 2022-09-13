@@ -17,7 +17,8 @@ If our codes and work are useful to you, we would appreciate a reference to:
 - The [codes](https://github.com/hharcolezi/LOLOHA/tree/main/codes) folder has all developed longitudinal LDP protocols.
 - The [datasets](https://github.com/hharcolezi/LOLOHA/tree/main/datasets) folder has all used datastes.
 - The [1_LOLOHA_Analysis.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/1_LOLOHA_Analysis.ipynb) Jupyter notebook has all analytical analysis of the protocols (estimators, variance, privacy levels), the optimization of LOLOHA g parameter, and the analytical variance evaluation.
-- The [2_LOLOHA_Adult.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/2_LOLOHA_Adult.ipynb) Jupyter notebook has the (simplified) experimental evaluation with the Adult dataset.
+- The [2_LOLOHA_Adult.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/2_LOLOHA_Adult.ipynb) Jupyter notebook has the experimental evaluation with the Adult dataset.
+- The [2_LOLOHA_PWGTP_Delaware.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/2_LOLOHA_PWGTP_Delaware.ipynb) Jupyter notebook has the experimental evaluation with the DB_DE (PWGTP_Delaware) dataset.
 
 ## Environment
 I mainly used Python 3 with numpy, pandas, and numba libaries. The versions I use are listed below:
