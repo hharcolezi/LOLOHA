@@ -21,7 +21,7 @@ If our codes and work are useful to you, we would appreciate a reference to:
 - The [2_LOLOHA_PWGTP_Delaware.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/2_LOLOHA_PWGTP_Delaware.ipynb) Jupyter notebook has the experimental evaluation with the DB_DE (PWGTP_Delaware) dataset.
 
 ## Environment
-I mainly used Python 3 with numpy, pandas, and numba libaries. The versions I use are listed below:
+Our codes were developed using Python 3 with numpy, pandas, and numba libaries. The versions are listed below:
 
 - Python 3.8.8
 - Numpy 1.23.1
