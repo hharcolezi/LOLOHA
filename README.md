@@ -13,7 +13,6 @@ If our codes and work are useful to you, we would appreciate a reference to:
 ```
 
 ## Codes & Datasets
-All experiments in the paper are repeated over 20 iterations. Here we provide two Jupyter notebooks that use a reduced fraction of the respective dataset to decrease execution time through 5 iterations.
 
 - The [LDP](https://github.com/hharcolezi/LOLOHA/tree/main/LDP) folder has all developed longitudinal LDP protocols.
 - The [datasets](https://github.com/hharcolezi/LOLOHA/tree/main/datasets) folder has all used datastes.
