@@ -1,5 +1,5 @@
 # LOngitudinal LOcal HAshing (LOLOHA)
-Repository for the paper: *[Héber H. Arcolezi](https://hharcolezi.github.io/), [Carlos Pinzón](https://www.caph.info/), [Catuscia Palamidessi](http://www.lix.polytechnique.fr/Labo/Catuscia.Palamidessi/), [Sébastien Gambs](https://sebastiengambs.openum.ca/). "Frequency Estimation of Evolving Data Under Local Differential Privacy" (2022).
+Repository for the paper: *[Héber H. Arcolezi](https://hharcolezi.github.io/), [Carlos Pinzón](https://www.caph.info/), [Catuscia Palamidessi](http://www.lix.polytechnique.fr/Labo/Catuscia.Palamidessi/), [Sébastien Gambs](https://sebastiengambs.openum.ca/). "Frequency Estimation of Evolving Data Under Local Differential Privacy" (2022)*.
 
 ## Codes & Datasets
 All experiments in the paper are repeated over 20 iterations. Here we provide four Jupyter notebooks that use a reduced fraction of the respective dataset to decrease execution time through 5 iterations. Please use the whole dataset (frac=1) and all iterations (nb_seed=20) to fully reproduce the paper's results.
