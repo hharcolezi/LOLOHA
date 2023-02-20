@@ -345,8 +345,12 @@ def L_GRR_Aggregator(reports, k, eps_perm, eps_1):
 # Competitor: dBitFlipPM [3]
 def dBitFlipPM_Client(input_sequence, k, b, d, eps_perm):
     
-    def dBit(bucketized_data, b, d, j, p1, q1):
-    
+    def dBit(bucketized_data, b, d, j, eps_perm):
+        
+        # SUE parameters
+        p1 = np.exp(eps_perm / 2) / (np.exp(eps_perm / 2) + 1)
+        q1 = 1 - p1
+        
         # Unary encoding
         permanent_sanitization = np.ones(b) * - 1 # set to -1 non-sampled bits
 
@@ -363,52 +367,48 @@ def dBitFlipPM_Client(input_sequence, k, b, d, eps_perm):
                 idx_j+=1
         return permanent_sanitization
     
-    # SUE parameters
-    p1 = np.exp(eps_perm / 2) / (np.exp(eps_perm / 2) + 1)
-    q1 = 1 - p1
-    
     # calculate bulk number of user's value
     bulk_size = k / b
     
-    # Cache for memoized values
-    lst_memoized = {val:None for val in range(b)}
+    # bucketized sequence
+    bucket_sequence = [int(input_data / bulk_size) for input_data in input_sequence]
     
-    # Random bits
+    # Select random bits and permanently memoize them
     j = np.random.choice(range(0, b), d, replace=False)
     
-    # Use already memoized hashed value
+    # UE matrix of b buckets
+    UE_b = np.eye(b)
+    
+    # mapping {0, 1}^d possibilities of input data
+    mapping_d = np.unique([UE_b[val][j] for val in bucket_sequence], axis=0)
+    
+    # Privacy budget consumption min(d+1, b)
+    final_budget = len(mapping_d)
+        
+    # Cache for memoized values
+    lst_memoized = {str(val): None for val in mapping_d}
+    
+    # List of sanitized reports throughout \tau data collections 
     sanitized_reports = []
-    for input_data in input_sequence:
+    for bucketized_data in bucket_sequence:
         
-        bucketized_data = int(input_data / bulk_size)
+        pattern = str(UE_b[bucketized_data][j])
+        if lst_memoized[pattern] is None: # Memoize value
         
-        # Unary encoding
-        input_ue_data = np.zeros(b)
-        input_ue_data[bucketized_data] = 1
+            first_sanitization = dBit(bucketized_data, b, d, j, eps_perm)
+            lst_memoized[pattern] = first_sanitization
         
-        if lst_memoized[bucketized_data] is None: # List of sanitized reports throughout \tau data collections
-        
-            # Memoization
-            first_sanitization = dBit(bucketized_data, b, d, j, p1, q1)
-            lst_memoized[bucketized_data] = first_sanitization
-        
-        else: # If hashed value not memoized
-            first_sanitization = lst_memoized[bucketized_data]
+        else: # Use already memoized value
+            first_sanitization = lst_memoized[pattern]
         
         sanitized_reports.append(first_sanitization)
-    
-    # Number of bucket value changes, i.e, of privacy budget consumption
-    final_budget = sum([val is not None for val in lst_memoized.values()])
-    
-    # Number memoized responses
-    nb_changes = []
-    for key in lst_memoized.keys():
-        if lst_memoized[key] is not None:
-            nb_changes.append(list(lst_memoized[key]))
+
+    # Number of memoized responses
+    nb_changes = len(np.unique([val for val in lst_memoized.values() if val is not None], axis = 0))
     
     # Boolean value to indicate if number of memoized responses equal number of bucket value changes
-    detect_change = final_budget == len(np.unique(np.array(nb_changes), axis=0))
-    
+    detect_change = len(np.unique(bucket_sequence)) == nb_changes
+
     return sanitized_reports, final_budget, detect_change
 
 def dBitFlipPM_Aggregator(reports, b, d, eps_perm):
