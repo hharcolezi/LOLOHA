@@ -1,14 +1,18 @@
 # LOngitudinal LOcal HAshing (LOLOHA)
-Repository for the paper: *[Héber H. Arcolezi](https://hharcolezi.github.io/), [Carlos Pinzón](https://www.caph.info/), [Catuscia Palamidessi](http://www.lix.polytechnique.fr/Labo/Catuscia.Palamidessi/), [Sébastien Gambs](https://sebastiengambs.openum.ca/). "Frequency Estimation of Evolving Data Under Local Differential Privacy" (2022)*. <https://arxiv.org/abs/2210.00262>.
+Repository for the paper: *[Héber H. Arcolezi](https://hharcolezi.github.io/), [Carlos Pinzón](https://www.caph.info/), [Catuscia Palamidessi](http://www.lix.polytechnique.fr/Labo/Catuscia.Palamidessi/), [Sébastien Gambs](https://sebastiengambs.openum.ca/). "Frequency Estimation of Evolving Data Under Local Differential Privacy"*. In: Proceedings of the 26th International Conference on Extending Database Technology, EDBT 2023, Ioannina, Greece, March 28 - March 31, 2023. pp. 512–525. <http://dx.doi.org/10.48786/edbt.2023.44>.
 
 If our codes and work are useful to you, we would appreciate a reference to:
 
 ```
-@article{Arcolezi2022,
-  title={Frequency Estimation of Evolving Data Under Local Differential Privacy},
-  author={Arcolezi, Héber H. and Pinzón, Carlos and Palamidessi, Catuscia and Gambs, Sébastien},
-  journal={arXiv preprint arXiv:2210.00262},
-  year={2022}
+@inproceedings{Arcolezi2023,
+  author    = {Arcolezi,  Héber H. and Pinzón,  Carlos A and Palamidessi,  Catuscia and Gambs,  Sébastien},
+  title     = {Frequency Estimation of Evolving Data Under Local Differential Privacy},
+  booktitle = {Proceedings of the 26th International Conference on Extending Database
+               Technology, {EDBT} 2023, Ioannina, Greece, March 28 - March 31, 2023},
+  pages     = {512--525},
+  publisher = {OpenProceedings.org},
+  year      = {2023},
+  doi       = {10.48786/EDBT.2023.44},
 }
 ```
 
@@ -24,10 +28,12 @@ All experiments in the paper are repeated over 20 iterations. Here we provide fo
   - The [Experiments_DB_DE.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/Experiments_DB_DE.ipynb) Jupyter notebook has the experimental evaluation with the **DB_DE dataset**.
 - Appendix:
   - The [Appendix_Theoretical_Analysis.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/Appendix_LOLOHA_Analysis.ipynb) Jupyter notebook has the theoretical analysis of our LOLOHA protocol (privacy levels, estimator, variance, and the optimization of parameter g) and of state-of-the-art LDP protocols.
-  - The [Appendix_Variances.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/Appendix_Variances.ipynb) Jupyter notebook has the theorical variances and the numerical analysis of variances (Fig. 2).
+  - The [Appendix_Variances.ipynb](https://github.com/hharcolezi/LOLOHA/blob/main/Appendix_Variances.ipynb) Jupyter notebook has the theoretical variances and the numerical analysis of variances (Fig. 2).
+
+**We have implemented LOLOHA mechanisms into our [multi-freq-ldpy](https://github.com/hharcolezi/multi-freq-ldpy) Python package.**
 
 ## Environment
-Our codes were developed using Python 3 with numpy, pandas, and numba libaries. The versions are listed below:
+Our codes were developed using Python 3 with numpy, pandas, and numba libraries. The versions are listed below:
 
 - Python 3.8.8
 - Numpy 1.23.1
@@ -35,7 +41,7 @@ Our codes were developed using Python 3 with numpy, pandas, and numba libaries. 
 - Numba 0.53.1
 
 ## Contact
-For any question, please contact:
+For any questions, please contact:
 - [Héber H. Arcolezi](https://hharcolezi.github.io/): heber.hwang-arcolezi [at] inria.fr
 - [Carlos Pinzón](https://www.caph.info/): carlos.pinzon [at] inria.fr
 
